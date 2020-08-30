@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
 
 <h3>List Polls</h3>
-{% for item in data %}
-    <p>{{ item }}</p>
-{% endfor %}
-</body>
-</html>
+
+<ul class="list-group">
+    {% for item in data %}
+        <li class="list-group-item">
+            <span>{{ item.question }}</span>
+            <select name="answer" class="form-control" >
+                {% for answer in answers %}
+                    <option value="{{ answer.0 }}">{{ answer.0 }}</option>
+                {% endfor %}
+            <select>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

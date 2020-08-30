@@ -4,22 +4,23 @@ from django.views.generic import ListView, CreateView
 from multiple_permissions.permissions import IsSuperuser, IsAuthenticated
 
 from .forms import PollsForm
-from .models import Polls
+from .models import Polls, ANSWER_CHOICES
 
 
 class PollsListView(ListView):
     form_class = PollsForm
     queryset = Polls.objects.all()
-    permission_classes = IsAuthenticated,
+    multiple_permissions = IsAuthenticated,
     template_name = "polls/list_polls.html"
 
     def get(self, request, *args, **kwargs):
         data = self.queryset
-        return render(request, self.template_name, {"data": data})
+        answers = ANSWER_CHOICES
+        return render(request, self.template_name, {"data": data, "answers": answers})
 
 
 class PollsCreateView(CreateView):
-    permission_classes = IsSuperuser,
+    multiple_permissions = IsSuperuser,
     form_class = PollsForm
     queryset = Polls.objects.all()
     template_name = "polls/create_polls.html"

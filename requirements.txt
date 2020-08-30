@@ -1,6 +1,6 @@
 Cython==0.29.14
 Django==2.2.7
 docutils==0.15.2
-multiple-permissions==0.1.4
+multiple-permissions==0.1.9
 pytz==2019.3
 sqlparse==0.3.0
