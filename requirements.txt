@@ -1,5 +1,5 @@
 Cython==0.29.14
-Django==2.2.7
+Django==2.2.28
 docutils==0.15.2
 multiple-permissions==0.1.9
 pytz==2019.3
